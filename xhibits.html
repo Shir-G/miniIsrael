@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="exhibitPage">
+    <head>
+        <title>Mini Israel</title>
+        <meta charset="UTF-8">
+        <meta name="google-signin-client_id" content="57315749839-cbgga3h69794p7fv2spg378v116car9o.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/style.css">        
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/jquery.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/googleAuth.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/components.js"></script>
+    </head>
+    <body ng-controller="exhibitCtrl" id="controller">
+        <header>
+            <a href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html" id="logo"></a>
+        </header>
+        <div id="wrapper">
+            <script>document.write(menu);</script>
+            <main class="clear">
+                <ol class="breadcrumb col-md-6 col-lg-6 col-md-offset-6 col-lg-offset-6">
+                    <li><a href = "http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html">עמוד הבית</a></li>
+                    <li><a href = "#">מידע למבקרים</a></li>
+                    <li class = "active">דגמים</li>
+                </ol>
+                <h1 class="col-md-3 col-lg-3 col-md-offset-9 col-lg-offset-9">דגמים</h1>
+                <section id="content">
+                    <section ng-repeat="ex in exhibits"  class="xhibit-frame col-md-11 col-lg-11 col-md-offset-1 col-lg-offset-1">
+                        <a href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/xhibit.html/{{ex.nameId}}">
+                        <img ng-src="{{ex.image}}">
+                        <section id="xinfo">
+                            <h2>{{ex.name}}</h2>
+                            <h5>איפה:{{ex.where}}</h5>
+                            <h5>מתי:{{ex.when}}</h5>
+                            <h5>כמה:{{ex.size}}</h5>
+                        </section>
+                        </a>
+                        <myDirective2 my-directive="ex.nameId" callback-fn="getIfWatched(exhibit)" class="watched" id="watched-{{ex.nameId}}"></myDirective2>   
+                        <myDirective my-directive="ex.nameId" callback-fn="getIfLiked(exhibit)" class="heart" id="heart-{{ex.nameId}}"></myDirective>
+                    </section>
+                </section>
+            </main>
+            <aside>
+                <script>document.write(signIn);</script>
+                <script>document.write(sideNav);</script>
+            </aside>
+        </div>
+        <footer class="clear"></footer>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-cookies.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-route.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/exhibitPage.js"></script>
+    </body>
+</html>

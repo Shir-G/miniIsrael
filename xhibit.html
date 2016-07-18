@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="xhibit">
+    <head>
+        <title>Mini Israel</title>
+        <meta charset="UTF-8">
+        <base href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/xhibit.html">
+        <meta name="google-signin-client_id" content="57315749839-cbgga3h69794p7fv2spg378v116car9o.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/style.css">        
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/jquery.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/googleAuth.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/components.js"></script>
+    </head>
+    <body ng-controller="exhibitCtrl" id="controller">
+        <header>
+            <a href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html" id="logo"></a> 
+        </header>
+        <div id="wrapper">
+            <script>document.write(menu);</script>
+            <main class="clear">
+                <ol class="breadcrumb col-md-6 col-lg-6 col-md-offset-6 col-lg-offset-6">
+                    <li><a href = "http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html">עמוד הבית</a></li>
+                    <li><a href = "#">מידע למבקרים</a></li>
+                    <li><a href = "http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/xhibits.html">דגמים</a></li>
+                    <li class = "active">{{exhibit.name}}</li>
+                </ol>
+                <h1 class="col-md-4 col-lg-4 col-md-offset-8 col-lg-offset-8">{{exhibit.name}}</h1>
+                <section id="content">
+                    <section class="xhibit-frame col-md-11 col-lg-11 col-md-offset-1 col-lg-offset-1">
+                        <img ng-src="{{exhibit.image}}">
+                    </section>
+                    <section class="xhibit-frame col-md-11 col-lg-11 col-md-offset-1 col-lg-offset-1">
+                        {{exhibit.info}}
+                    </section>
+                    <section class="xhibit-frame col-md-11 col-lg-11 col-md-offset-1 col-lg-offset-1" id="xvideo">
+                        <iframe ng-src='{{trustSrc(exhibit.video)}}' allowfullscreen></iframe>
+                        <button id="like" ng-click="addLike(exhibit.nameId)"></button>
+                    </section>
+                </section>
+            </main>
+            <aside>
+                <script>document.write(signIn);</script>
+                <script>document.write(sideNav);</script>
+            </aside>
+        </div>
+        <footer class="clear"></footer>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-cookies.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-route.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/xhibit.js"></script>
+    </body>
+</html>

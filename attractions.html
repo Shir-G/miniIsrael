@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="attractionPage">
+    <head>
+        <title>Mini Israel</title>
+        <meta charset="UTF-8">
+        <meta name="google-signin-client_id" content="57315749839-cbgga3h69794p7fv2spg378v116car9o.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/css/style.css">        
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/jquery.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/googleAuth.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/components.js"></script>
+    </head>
+    <body ng-controller="attractionCtrl" id="controller">
+        <header>
+            <a href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html" id="logo"></a> 
+        </header>
+        <div id="wrapper">
+            <script>document.write(menu);</script>
+            <main class="clear">
+                <ol class="breadcrumb col-md-6 col-lg-6 col-md-offset-6 col-lg-offset-6">
+                    <li><a href = "http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/index.html">עמוד הבית</a></li>
+                    <li><a href = "#">מידע למבקרים</a></li>
+                    <li class = "active">אטרקציות</li>                
+                </ol>
+                <h1 class="col-md-3 col-lg-3 col-md-offset-9 col-lg-offset-9">אטרקציות</h1>
+                <section id="content">
+                    <section ng-repeat="att in attractions" class="xhibit-frame col-md-11 col-lg-11 col-md-offset-1 col-lg-offset-1">
+                        <img ng-src="{{att.image}}">
+                        <section>
+                            <h2>{{att.name}}</h2>
+                            <h5><b>שעות:</b> {{att.hours}}</h5>
+                            <h5><b>תאריך:</b> {{att.date}}</h5>
+                            <p><h5><b>מידע:</b></h5>{{att.info}}</p>
+                            <h5><b>דגמים:</b></h5>
+                            <article ng-repeat="ex in att.exhibits">
+                                <a ng-href="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/xhibit.html/{{getExhibit(ex)}}">{{ex}}</a>
+                            </article>
+                        </section>
+                    </section>
+                </section>
+            </main>
+            <aside>
+                <script>document.write(signIn);</script>
+                <script>document.write(sideNav);</script>
+            </aside>
+        </div>
+        <footer class="clear"></footer>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-cookies.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/lib/angular/angular-route.min.js"></script>
+        <script src="http://shenkar.html5-book.co.il/2015-2016/ws1/dev_181/js/attractionPage.js"></script>       
+    </body>
+</html>
